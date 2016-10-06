@@ -417,6 +417,12 @@ final class Mbstring
             }
         }
 
+        switch ($encoding) {
+            case 'ASCII':
+            case 'CP850':
+                return substr($s, $start, $length);
+        }
+
         return iconv_substr($s, $start, $length, $encoding).'';
     }
 
